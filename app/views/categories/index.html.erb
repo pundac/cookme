@@ -10,33 +10,33 @@
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
-      <li class="nav-item active">
+      <!-- <li class="nav-item active">
         <%= link_to "Home", "#", class: "nav-link" %>
       </li>
       <li class="nav-item">
         <%= link_to "Messages", "#", class: "nav-link" %>
-      </li>
+      </li> -->
       <li class="nav-item dropdown">
         <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-          <%= link_to "Action", "#", class: "dropdown-item" %>
-          <%= link_to "Another action", "#", class: "dropdown-item" %>
+          <%= link_to "Create a plate", "#", class: "dropdown-item" %>
+          <%= link_to "Log out", "#", class: "dropdown-item" %>
         </div>
       </li>
     </ul>
   </div>
 </div>
 
-
 <div class="container">
   <div class="cards">
     <% @categories.each do |category|  %>
-    <% link_to categories_path do %>
+    <%= link_to categories_path do %>
         <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)),
-         url(https://lh3.googleusercontent.com/proxy/h7hqoxxzRBUJOaOBtkPlpMgxpUvpqtPVw0WEta3f1VKlMYjjC8i4feeNoHfXBdAXRo16WemGJuzbowrktiHr797o4isGgUnRaG6S0ajr-xmqdSt6-cI73Rfb4_czK5oeJgdvr3aYiQ)">
+         url(<%= cl_image_path(category.photo.key)%>)">
         <%=  category.name %>
         </div>
       <% end %>
     <% end %>
   </div>
 </div>
+
