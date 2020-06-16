@@ -17,7 +17,7 @@ ActiveRecord::Schema.define(version: 2020_06_15_202724) do
 
   create_table "bookings", force: :cascade do |t|
     t.integer "date"
-    t.boolean "accepted"
+    t.boolean "accepted", default: false
     t.bigint "offer_id", null: false
     t.bigint "user_id", null: false
     t.bigint "review_id", null: false
@@ -29,7 +29,7 @@ ActiveRecord::Schema.define(version: 2020_06_15_202724) do
   end
 
   create_table "categories", force: :cascade do |t|
-    t.integer "name"
+    t.string "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
