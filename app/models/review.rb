@@ -1,4 +1,5 @@
 class Review < ApplicationRecord
-    validates :rating, presence :true
-    validates :comment, presence :true
+  belongs_to :booking
+    validates :rating, presence: true
+    validates :comment, presence: true
 end
