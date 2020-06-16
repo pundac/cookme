@@ -1,1 +1,9 @@
-<%= @offers %>
+<div class="container">
+  <ul>
+
+  <% @offers.each do |offer| %>
+    <li><%= link_to offer.title, offer_path(offer) %></li>
+  <% end %>
+  <a href="offers/new" class="btn btn-primary">Create one</div>
+  </ul>
+</div>
