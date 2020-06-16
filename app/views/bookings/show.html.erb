@@ -1,7 +1,7 @@
 <h1 class="text-justify">Your Booking Confirmation</h1>
 
 <p class="text-justify">Please give us a review of your cook!</p>
-<%=simple_form_for(@review) do |f| %>
+<%=simple_form_for [@booking, @review] do |f| %>
 <div class="form-group">
   <%= f.input :comment %>
   <%=f.collection_radio_buttons :rating, [[1, '1'] ,[2, '2'],[3, '3'],[4, '4'],[5, '5']], :first, :last %>

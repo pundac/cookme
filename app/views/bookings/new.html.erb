@@ -1,8 +1,9 @@
 <h1>Complet your cook order</h1>
-<%=simple_form_for(@booking) do |f| %>
- <div class="form-group">
+<p class="text-justify"><%=@offer.title %></p>
+<p class="text-justify"><%=@offer.user.name %></p>
+<div class="form-group">
+<%=simple_form_for [@offer, @booking] do |f| %>
   <%= f.input :date %>
-  <%= f.submit %>
+  <%= f.submit "validate", class:"btn btn-light"  %>
 <% end %>
-
- <div class="btn btn-light"><%=link_to "pay", booking_path(booking) %></div> 
+</div>
