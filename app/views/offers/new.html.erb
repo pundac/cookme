@@ -1,1 +1,8 @@
-<%= @offer.title %>
+<%= simple_form_for @offer do |f| %>
+  <%= f.input :title , label: 'Title for the Offer' %>
+  <%= f.input :description, hint: 'Minimum 6 characters' %>
+  <%= f.input :price %>
+  <%= f.association :category %>
+  <%= f.input :user %>
+  <%= f.button :submit, class: "btn btn-custom" %>
+<% end %>

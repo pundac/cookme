@@ -1,1 +1,8 @@
-<%= @offer%>
+<div class="container">
+  <ul>
+    <li><%= @offer.title%></li>
+    <li> <%= @offer.description %></li>
+    <li><%= @offer.price %></li>
+  </ul>
+  <a href="/offers" class="btn btn-primary">Back</a>
+</div>
