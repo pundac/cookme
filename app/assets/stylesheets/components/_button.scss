@@ -1,13 +1,13 @@
 .btn-flat {
-  color: #9ab553;
-  border: 1px solid #4A4A4A;
+  color: white;
   padding: 8px 24px;
   border-radius: 50px;
-  font-weight: lighter;
-  opacity: 0.6;
-  transition: opacity 0.6s ease;
-  &:hover {
-    opacity: 1;
-  }
+  background: #1EDD88;
+  transition: background 0.3s ease;
+}
+
+.btn-flat:hover {
+  background: #1BCB7F;
+  color: white;
 }
 
