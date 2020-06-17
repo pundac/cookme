@@ -6,14 +6,12 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-category = Category.create!(name: 'French')
-Offer.create!(title: 'Pate soucis', description: 'Meilleure blague', price: 20, user: User.first, category: category)
 
 require "open-uri"
 
 Category.destroy_all
 
-italian = URI.open('https://lh3.googleusercontent.com/proxy/h7hqoxxzRBUJOaOBtkPlpMgxpUvpqtPVw0WEta3f1VKlMYjjC8i4feeNoHfXBdAXRo16WemGJuzbowrktiHr797o4isGgUnRaG6S0ajr-xmqdSt6-cI73Rfb4_czK5oeJgdvr3aYiQ')
+italian = URI.open('https://www.tourdumonde.fr/wordpress/wp-content/uploads/pizza3.jpg')
 french = URI.open('https://www.mamazsocialfood.com/photos/_themes/themes.cuisine-francaise.jpg')
 indian = URI.open('https://data.tibettravel.org/assets/images/Tibet-bhutan-tour/indian-food-in-Lhasa.jpg')
 japanese = URI.open('https://jpninfo.com/wp-content/uploads/2018/03/sushi-platter.jpg')
