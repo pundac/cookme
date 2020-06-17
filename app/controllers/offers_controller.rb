@@ -1,10 +1,16 @@
 class OffersController < ApplicationController
   def index
-    @offers = Offer.all
+    if params[:category].blank?
+      @offers = Offer.all
+    else
+      category = Category.find_by(name: params[:category])
+      @offers = Offer.where(category_id: category.id)
+    end
   end
 
   def show
     @offer = Offer.find(params[:id])
+    # @review = Review.all
   end
 
   def new

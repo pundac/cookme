@@ -4,5 +4,6 @@
     <li> <%= @offer.description %></li>
     <li><%= @offer.price %></li>
   </ul>
-  <a href="/offers" class="btn btn-primary">Back</a>
+  <a href="/offers" class="btn btn-flat">Back</a>
+  <%= link_to 'Create a Booking', new_offer_booking_path(@offer), class: "btn btn-flat" %>
 </div>
