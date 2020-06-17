@@ -7,10 +7,10 @@
     <p class="text-justify text-center "><strong><%=@offer.price %>€</strong></p>
         <div class="form-group">
         <%=simple_form_for [@offer, @booking] do |f| %>
-            <%= f.input :date %>
+            <%= f.datetime_field :date %>
             <%=f.input :accepted,  as: :radio_buttons %>
-            <%= link_to "Offer your plate", "", class: "btn btn-flat" %>
-            <div class="btn text-decoration-none btn-outline-secondary rounded btn-lg"><%=link_to "Back to offers", offers_path %></div>
+            <%= f.button :submit, class: "btn btn-flat" %>
+            <%=link_to "Back to offers", offers_path, class: "btn btn-flat" %>
         <% end %>
         </div>
     </div>
