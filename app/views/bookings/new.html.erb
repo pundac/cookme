@@ -1,9 +1,17 @@
-<h1>Complet your cook order</h1>
-<p class="text-justify"><%=@offer.title %></p>
-<p class="text-justify"><%=@offer.user.name %></p>
-<div class="form-group">
-<%=simple_form_for [@offer, @booking] do |f| %>
-  <%= f.input :date %>
-  <%= f.submit "validate", class:"btn btn-light"  %>
-<% end %>
+<div class = "text-center my-3">
+    <h1>Complet your cook order</h1>
+    <div class = "container border-white rounded bg-white py-3 my-3">
+    <p class="text-justify text-center ">Do you want to enjoy <strong><%=@offer.title %></strong></p>
+    <p class="text-justify text-center ">from our chef : <strong><%=@offer.user.name %></strong>?</p>
+    <p class="text-justify text-center ">Descritption: <%=@offer.description %></p>
+    <p class="text-justify text-center "><strong><%=@offer.price %>€</strong></p>
+        <div class="form-group">
+        <%=simple_form_for [@offer, @booking] do |f| %>
+            <%= f.input :date %>
+            <%=f.input :accepted,  as: :radio_buttons %>
+            <%= f.submit "validate", class:"btn btn-outline-secondary rounded btn-lg"  %>
+            <div class="btn text-decoration-none btn-outline-secondary rounded btn-lg"><%=link_to "Back to offers", offers_path %></div>
+        <% end %>
+        </div>
+    </div>
 </div>
