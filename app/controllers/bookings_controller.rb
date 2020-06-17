@@ -1,20 +1,19 @@
 class BookingsController < ApplicationController
 
-    def show
-        @booking = Booking.find(params[:id])
-       
-        @review = Review.new
-    end
-    
+  def show
+    @booking = Booking.find(params[:id])
+    @review = Review.new
+  end
+
     def new
         @offer = Offer.find(params[:offer_id])
-      
+
          @booking = Booking.new
 
     end
 
     def create
-        
+
         @booking = Booking.new(booking_params)
         @booking.offer = Offer.find(params[:offer_id])
         @booking.user = current_user

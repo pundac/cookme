@@ -1,8 +1,12 @@
-.btn-custom {
-  background-color: #0b2e51;
+.btn-flat {
   color: white;
-  &:hover {
-    background-color: #165493;
-    color: white;
-  }
+  padding: 8px 24px;
+  border-radius: 50px;
+  background: #1EDD88;
+  transition: background 0.3s ease;
+}
+
+.btn-flat:hover {
+  background: #1BCB7F;
+  color: white;
 }
