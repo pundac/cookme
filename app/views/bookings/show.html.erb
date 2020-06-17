@@ -1,0 +1,16 @@
+<div class = "text-center my-3">
+    <h1 class="text-justify text-center">Your Booking Confirmation</h1>
+
+    <div class = "container border-white rounded bg-white py-3 my-3">
+        <p class="text-justify text-center">We hope you appreciated this gastronomic moment at your home!
+        <p class="text-justify text-center">Please give us a review of your cook!</p>
+        <%=simple_form_for [@booking, @review] do |f| %>
+        <div class="form-group text-center">
+            <%= f.input :comment %>
+            <%=f.collection_radio_buttons :rating, [[1, '1'] ,[2, '2'],[3, '3'],[4, '4'],[5, '5']], :first, :last %>
+
+            <%= f.submit "validate", class:"btn btn-outline-secondary rounded "%>
+        <% end %>
+        </div>
+    </div>
+</div>
