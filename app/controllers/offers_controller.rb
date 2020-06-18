@@ -1,5 +1,14 @@
 class OffersController < ApplicationController
   def index
+    @offers = Offer.geocoded
+    @markers = @offers.map do |offer|
+      {
+        lat: offer.latitude,
+        lng: offer.longitude,
+        infoWindow: render_to_string(partial: "info_window", locals: { offer: offer }),
+        image_url: helpers.asset_url('map_marker.png')
+      }
+    end
     if params[:category].blank?
       @offers = Offer.all
     else
@@ -31,6 +40,6 @@ class OffersController < ApplicationController
   private
 
   def offer_params
-    params.require(:offer).permit(:title, :description, :price, :category_id, :photo)
+    params.require(:offer).permit(:title, :description, :price, :category_id, :photo, :address)
   end
 end
