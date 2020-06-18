@@ -1,15 +1,30 @@
-<div class="container">
-  <%= link_to 'Create one', new_offer_path, class: "btn-flat" %>
-  <ul>
+<div class="container footer-bottom">
+  <div class="d-flex justify-content-between mt-2">
 
-  <% @offers.each do |offer| %>
-    <li><%= link_to offer.title, offer_path(offer) %></li>
-  <% end %>
-  </ul>
-  <%= link_to 'Back to categories', categories_path, class: 'btn-flat' %>
+    <%= link_to 'Back to categories', categories_path, class: 'btn btn-flat' %>
+    <%= link_to 'Create one', new_offer_path, class: "btn btn-flat btn-create" %>
+  </div>
+    <div class="d-flex justify-content-between">
+    <div class="cards ">
+    <% @offers.each do |offer| %>
+      <div class="card-product">
+        <img src="https://st.depositphotos.com/1036708/2191/i/450/depositphotos_21918797-stock-photo-knife-and-fork-with-plate.jpg" />
+        <div class="card-product-infos">
+          <ul>
+            <li class="offer-title"><%= link_to offer.title, offer_path(offer) %></li>
+            <li class="offer-desc"><%= offer.description.split("").first(35).join %></li>
+            <li class="offer-price"><%= offer.price %>€</li>
+          </ul>
+        </div>
+
+      </div>
+    <% end %>
+    </div>
+    <div id="map"
+     style="width: 100%; height: 600px;"
+     data-markers="<%= @markers.to_json %>"
+     data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"></div>
+      <!-- <img id="map"src="https://api.mapbox.com/styles/v1/mapbox/streets-v11/static/2.3381,48.8693,10.45,0,0/600x1000?access_token=pk.eyJ1IjoiZ2FzcGNsYngiLCJhIjoiY2thczVlYjU0MGx5NTJxcWZtYW43d3FzZyJ9.fpp5V_dXl6Hq394QesgHxg"> -->
+    </div>
+  </div>
 </div>
-
-<div class="container" text-align: center>
-<h1><strong>Coming soon</strong></h1>
-</div>
-
