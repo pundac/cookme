@@ -1,17 +1,31 @@
 <div class = "text-center my-3">
     <h1>Complet your cook order</h1>
-    <div class = "container border-white rounded bg-white py-3 my-3">
-    <p class="text-justify text-center ">Do you want to enjoy <strong><%=@offer.title %></strong></p>
-    <p class="text-justify text-center ">from our chef : <strong><%=@offer.user.name %></strong>?</p>
-    <p class="text-justify text-center ">Descritption: <%=@offer.description %></p>
-    <p class="text-justify text-center "><strong><%=@offer.price %>€</strong></p>
-        <div class="form-group">
-        <%=simple_form_for [@offer, @booking] do |f| %>
-            <%= f.datetime_field :date %>
-            <%=f.input :accepted,  as: :radio_buttons %>
-            <%= f.button :submit, class: "btn btn-flat" %>
-            <%=link_to "Back to offers", offers_path, class: "btn btn-flat" %>
-        <% end %>
+    <div class ="d-flex flex-row justify-content-center  m-3">
+      <div class ="border-white rounded bg-white p-3 m-3 ">
+        <img src="https://www.pexels.com/photo/cooked-pasta-with-sliced-tomatoes-and-green-leafy-128408/" class="img-fluid img-thumbnail rounded" alt="<%=@offer.title %>">
+      </div>
+      <div class = "d-flex flex-column">
+        <div class="border-white rounded bg-white p-3 m-3"> 
+          <p class="text-justify text-center ">Do you want to enjoy <strong><%=@offer.title %></strong></p>
+          <p class="text-justify text-center ">from our chef : <strong><%=@offer.user.name %></strong>?</p>
+          <p class="text-justify text-center ">You will pay <strong><%=@offer.price %>€</strong></p>
+          <p class="text-justify text-center "><strong>Descritption:</strong> <%=@offer.description %></p>
+        </div> 
+        <div class="form-group border-white rounded bg-white p-3 m-3">
+        <p class="text-justify text-center">Please selecte the  </p>
+          <div class="form-wrapper" style="width: 400px; margin: 0 auto;">
+             <%=simple_form_for [@offer, @booking] do |f| %>
+                 <%= f.input :date, as: :string, required: false, input_html: {class: "datepicker"} %>
+                 <%# <%=f.input :accepted,  as: :radio_buttons %> 
+                 <%# <% if :accepted ? %> 
+                   <%=f.button :submit, "Create a booking", class: "btn btn-flat mr-3" %>
+                 <%# <%else %>
+                  <%# <p class="text-justify text-center">Sorry, your order can note be treated by our cook</p> 
+                 <% end %>  
+                 <%=link_to "Back to offers", offers_path, class: "btn btn-flat ml-3" %>
+                <% end %> 
         </div>
+      </div>
     </div>
+  
 </div>
