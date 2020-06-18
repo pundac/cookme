@@ -8,7 +8,7 @@
   <%= link_to 'Create a Booking', new_offer_booking_path(@offer), class: "btn btn-flat" %>
 </div>
 
-
+<%= cl_image_tag @offer.photo.key, height: 300, width: 400, crop: :fill %>
 
 <div class="container" text-align: center>
 <h1><strong>Coming soon</strong></h1>
