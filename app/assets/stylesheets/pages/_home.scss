@@ -1,8 +1,10 @@
 // Specific CSS for your home-page
 .banner {
-  background-size: cover;
-  background-position: center;
+  background-size: 45%;
+  background-repeat: no-repeat;
+  background-position: left;
   padding: 150px 0;
+
 }
 
 .banner h1 {
@@ -19,4 +21,17 @@
   color: white;
   opacity: .7;
   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+}
+
+#carouselExampleControls img {
+  max-width: 150vh;
+  height: 65vh;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.carousel-item img{
+  margin-top: 10px;
+  border-radius: 5px;
+  box-shadow: 0 0 4px black;
 }

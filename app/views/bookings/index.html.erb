@@ -1,0 +1,36 @@
+<div class = "d-flex flex-row justify-content-center m-3">
+  <div class ="flex-fill p-3 m-3 ">
+    <h1 class = "text-justify text-center">My reservation </h1>
+    <% @bookings.each do |booking| %>
+      <div class = "d-flex flex-column border-white rounded bg-white p-3 m-3">
+      <p class="text-justify text-center"><%= link_to booking.offer.title, booking_path(booking) %></p>
+      <p class="text-justify text-center"><%= booking.date %></p>
+      
+      
+      </div>
+    <% end %>
+  </div>
+  <div class ="flex-fill text-center p-3 m-3 ">
+    <h1 class = "text-justify text-center">My offer</h1>
+    <% @offers.each do |offer| %>
+      <div class = "d-flex flex-column border-white rounded bg-white p-3 m-3">
+        <p class="text-justify text-center"><%= offer.user.email%></p>
+        
+        <p class="text-justify text-center"><%= offer.title%></p>
+     <% @bookings.each do |booking| %>
+         <p class="text-justify text-center"><%= booking.date%></p>
+     <div class="form-group justify-content-center">
+           <%=simple_form_for [booking] do |f| %>
+           <%=f.input :accepted,  as: :radio_buttons %> 
+           <%=f.button :submit, "validate this service", class: "btn btn-flat  mr-3" %> 
+        </div> 
+      </div>
+        <% end %> 
+       
+        
+        <% end %> 
+      </div>
+ 
+    <% end %>
+   </div>
+</div>

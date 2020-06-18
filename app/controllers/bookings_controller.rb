@@ -1,8 +1,14 @@
 class BookingsController < ApplicationController
-  def show
+   def index
+    @bookings = current_user.bookings
+    @offers = current_user.offers    
+   end
+    
+
+    def show
     @booking = Booking.find(params[:id])
     # @review = Review.new
-  end
+    end
 
   def new
     @offer = Offer.find(params[:offer_id])
@@ -19,6 +25,15 @@ class BookingsController < ApplicationController
     else
       render :new
     end
+
+
+  
+
+    # if params[:booking]?
+
+    #     user_name = User.find_by(title: params[:offer])
+    #     # @offers = Offer.where(category_id: category.id)
+    # end
   end
 
   private
