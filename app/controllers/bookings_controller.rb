@@ -15,10 +15,7 @@ class BookingsController < ApplicationController
          @booking.accepted = true 
         end 
         @booking.save 
-
     end
-    @booking.save
-  end
 
   def show
     @booking = Booking.find(params[:id])
