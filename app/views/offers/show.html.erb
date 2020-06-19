@@ -1,26 +1,34 @@
-<div class="container footer-bottom">
-  <div class="card-product">
-    <img src="https://st.depositphotos.com/1036708/2191/i/450/depositphotos_21918797-stock-photo-knife-and-fork-with-plate.jpg" />
-    <div class="card-product-infos">
-  <ul>
-    <li class="offer-title"><%= @offer.title%></li>
-    <li class="offer-desc"><%= @offer.description %></li>
-    <li class="offer-price"><%= @offer.price %>€</li>
-  </ul>
-    </div>
+<div class="main-container">
+
+  <div class="container-recap col-lg-4" style="background-color: #c0c0c0">
+    <div class="offer-title" style="font-size: 50px"><%= @offer.title %></div>
+    <img class="avatar-bordered" alt="avatar-bordered" src="https://kitt.lewagon.com/placeholder/users/sarahlafer" />
+    <div class="offer-desc" style="font-size: 20px"><%= @offer.description %></div>
   </div>
-  <a href="/offers" class="btn btn-flat">Back</a>
-  <%= link_to 'Create a Booking', new_offer_booking_path(@offer), class: "btn btn-flat" %>
+
+  <div class="container-desc col-sm-4" style="background-color: #c0c0c0">
+    <%= cl_image_tag @offer.photo.key, height: 300, width: 450, crop: :fill, class: "card-image mt-2" %>
+    <div class="card-rating"><% @offer.bookings.each do |booking| %>
+        <%= booking.review.rating %>
+        <% end %>
+    </div>
+    <div class="card-price" style="font-size: 50px"><%= @offer.price %>€</div>
+  </div>
+
+
+</div>
+<div class="btn-show">
+    <a href="/offers" class="btn btn-flat">Back</a>
+    <%= link_to 'Create a Booking', new_offer_booking_path(@offer), class: "btn btn-flat" %>
 </div>
 
-<%= cl_image_tag @offer.photo.key, height: 300, width: 400, crop: :fill %>
 
-<div class="container">
-  <span id="rateMe4"  class="feedback"></span>
-</div>
+  <div class="container">
+    <span id="rateMe4"  class="feedback"></span>
+  </div>
 
-<!-- rating.js file -->
-<script src="js/addons/rating.js"></script>
+  <!-- rating.js file -->
+  <script src="js/addons/rating.js"></script>
 
 <!-- <div class="container" text-align: center>
 <h1><strong>Coming soon</strong></h1>
