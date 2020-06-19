@@ -9,28 +9,56 @@
   font-size: 24px;
   font-weight: bold;
   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
-  border-radius: 2px;
-  box-shadow: 0 0 4px black;
+  border-radius: 5px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  transition: all .2s ease-in-out;
+  &:hover {
+    font-size: 26px;
+    transform: scale(1.1);
+  }
+
 }
 .cards {
   grid-template-columns: 1fr 1fr;
   grid-gap: 50px;
   margin-top: 100px;
 }
+.cards-categories {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 50px;
+  margin-top: 50px;
+}
+
 .card-product {
+  color: black;
   margin-top: 10px;
   width: 600px;
   border-radius: 5px;
   flex-grow: 1;
+  transition: all .2s ease-in-out;
+}
+.card-product:hover {
+  transform: scale(1.1);
 }
 ul {
   list-style: none;
 }
 .offer-title {
+  color: black;
+  text-decoration: none;
   font-size: 20px;
   padding: 0 0 20px 0;
   font-weight: bold;
   font-family: 'Montserrat', sans-serif;
+  a:hover {
+    color: black;
+    text-decoration: none;
+    font-weight: bolder;
+  }
+  a {
+    color: black;
+  }
 }
 .offer-desc {
   font-family: 'Montserrat', sans-serif;
