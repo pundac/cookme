@@ -6,10 +6,18 @@
     <div class="offer-desc" style="font-size: 20px"><%= @offer.description %></div>
   </div>
 
-  <div class="container-desc col-sm-4" style="background-color: #c0c0c0">
+  <div class="container-desc col-sm-4" style="background-color: #ffffff">
     <%= cl_image_tag @offer.photo.key, height: 300, width: 450, crop: :fill, class: "card-image mt-2" %>
-    <div class="card-rating"><% @offer.bookings.each do |booking| %>
-        <%= booking.review.rating %>
+    <div class="card-rating">
+      <% unless @offer.bookings.map { |b| b.review }.compact.empty? %>
+          <% note = @offer.bookings.map(&:review).compact.map(&:rating).sum / @offer.bookings.map(&:review).compact.size %>
+
+          <% note.times do %>
+            <i class="fas fa-star yellow"></i>
+          <% end %>
+          <% (5 - note).times do %>
+            <i class="fa fa-star grey"></i>
+          <% end %>
         <% end %>
     </div>
     <div class="card-price" style="font-size: 50px"><%= @offer.price %>€</div>
@@ -18,7 +26,7 @@
 
 </div>
 <div class="btn-show">
-    <a href="/offers" class="btn btn-flat">Back</a>
+    <a href="/offers" class="btn btn-flat btn-booking">Back</a>
     <%= link_to 'Create a Booking', new_offer_booking_path(@offer), class: "btn btn-flat" %>
 </div>
 
