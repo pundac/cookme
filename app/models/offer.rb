@@ -1,7 +1,7 @@
 class Offer < ApplicationRecord
   belongs_to :user
   belongs_to :category
-  has_many :bookings
+  has_many :bookings, dependent: :destroy
   validates :title, presence: true, uniqueness: true
   validates :description, presence: true
   validates :price, presence: true
