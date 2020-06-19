@@ -1,13 +1,13 @@
 class BookingsController < ApplicationController
-   def index
+  def index
     @bookings = current_user.bookings
     @offer_bookings = []
-     current_user.offers.each do |offer|
-        @offer_bookings << offer.bookings
-    end 
+    current_user.offers.each do |offer|
+      @offer_bookings << offer.bookings
+    end
     @offer_bookings.flatten!
-
-   end
+  end
+  
     def update 
        
         @booking = Booking.find(params[:id])
@@ -15,13 +15,12 @@ class BookingsController < ApplicationController
          @booking.accepted = true 
         end 
         @booking.save 
-        
     end
 
-    def show
+  def show
     @booking = Booking.find(params[:id])
     @review = Review.new
-    end
+  end
 
   def new
     @offer = Offer.find(params[:offer_id])
@@ -32,15 +31,12 @@ class BookingsController < ApplicationController
     @booking = Booking.new(booking_params)
     @booking.offer = Offer.find(params[:offer_id])
     @booking.user = current_user
-    
+
     if @booking.save
       redirect_to booking_path(@booking)
     else
       render :new
     end
-
-
-  
 
     # if params[:booking]?
 

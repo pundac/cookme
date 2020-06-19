@@ -1,7 +1,7 @@
 <div class = "text-center my-3">
     <h1 class="text-justify text-center">Your Booking Confirmation</h1>
 
-    <div class = "container border-white rounded bg-dark text-white py-3 my-3">
+    <div class = "container border-white rounded bg-transparent text-white py-3 my-3">
      <% if @booking.accepted == true %>
       <i class="fas fa-check"></i>
         <p class="text-justify text-center">Congratulation your cook has accepted your demand!</p>
@@ -12,9 +12,8 @@
           <%=simple_form_for [@booking, @review] do |f| %>
             <div class="form-group">
             <%= f.input :comment %>
-            <%=f.collection_radio_buttons :rating, [[1, '1'] ,[2, '2'],[3, '3'],[4, '4'],[5, '5']], :first, :last %>  
-   
-            <%=f.button :submit, "submit", class: "btn btn-flat mr-3" %>
+            <%= f.input :rating, collection: (0..5) %>
+            <%= f.submit %>
             <% end %>
         </div>
       <%else %>

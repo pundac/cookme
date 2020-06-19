@@ -7,13 +7,13 @@
         <img src="https://www.pexels.com/photo/cooked-pasta-with-sliced-tomatoes-and-green-leafy-128408/" class="img-fluid img-thumbnail rounded" alt="<%=@offer.title %>">
       </div>
       <div class = "flex-fill d-flex flex-column">
-        <div class="border-light rounded bg-dark text-white p-3 m-3"> 
+        <div class="border-light rounded bg-ligt text-white p-3 m-3"> 
           <p class="text-justify text-center ">Do you want to enjoy <strong><%=@offer.title %></strong></p>
           <p class="text-justify text-center ">from our chef : <strong><%=@offer.user.name %></strong>?</p>
           <p class="text-justify text-center ">You will pay <strong><%=@offer.price %>€</strong></p>
           <p class="text-justify text-center "><strong>Descritption:</strong> <%=@offer.description %></p>
         </div> 
-        <div class="form-group border-white rounded bg-dark text-white p-3 m-3">
+        <div class="form-group border-white rounded bg-ligt text-white p-3 m-3">
         <p class="text-justify text-center">Please selecte the  </p>
           <div class="form-wrapper" style="width: 400px; margin: 0 auto;">
              <%=simple_form_for [@offer, @booking] do |f| %>
