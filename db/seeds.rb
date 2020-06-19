@@ -46,7 +46,7 @@ booking_3 = Booking.new(date: "Sat, 30 Jun 2020 17:00:00 UTC +00:00", user_id: 4
 
 user_4 = User.new(email: "Gasp.gmail", name: "Fou Fou")
 offer_4 = Offer.new(title: "Pas de Sushi", description: "mieux que au camping des flots bleu ", price: 1, user_id: 4, address: "2 Avenue des Saules, 59160 LILLE ")
-offer_
+
 
 carbonara = URI.open('https://images.pexels.com/photos/998246/pexels-photo-998246.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500')
 boeuf_bourgignon = URI.open('https://www.istockphoto.com/photo/boeuf-bourguignon-french-dish-gm1129663752-298499301?utm_campaign=srp_photos_noresults&utm_content=https%3A%2F%2Fwww.pexels.com%2Fsearch%2Fboeuf%2520bourgignon%2520%2F&utm_medium=affiliate&utm_source=pexels&utm_term=boeuf%20bourgignon')
