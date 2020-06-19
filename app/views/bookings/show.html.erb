@@ -6,6 +6,10 @@
         <p class="text-justify text-center">Please give us a review of your cook!</p>
         <div class="form-group text-center">
           <%= link_to 'Back', offers_path, class: "btn btn-flat" %>
+          <%=simple_form_for [@booking, @review] do |f| %>
+            <div class="form-group">
+            <%= f.input :comment %>
+            <%=f.collection_radio_buttons :rating, [[1, '1'] ,[2, '2'],[3, '3'],[4, '4'],[5, '5']], :first, :last %>  <%= f.submit %> <% end %>
         </div>
     </div>
 </div>

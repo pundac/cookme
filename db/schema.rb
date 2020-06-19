@@ -37,7 +37,7 @@ ActiveRecord::Schema.define(version: 2020_06_18_133857) do
   end
 
   create_table "bookings", force: :cascade do |t|
-    t.integer "date"
+    t.datetime "date"
     t.boolean "accepted", default: false
     t.bigint "offer_id", null: false
     t.bigint "user_id", null: false
