@@ -7,16 +7,10 @@ class BookingsController < ApplicationController
     end
     @offer_bookings.flatten!
   end
-  
-    def update 
-       
-        @booking = Booking.find(params[:id])
-        if params[:accepted] =="true"
-         @booking.accepted = true 
-        end 
-        @booking.save 
 
-    end
+  def update
+    @booking = Booking.find(params[:id])
+    @booking.accepted = true if params[:accepted] == "true"
     @booking.save
   end
 
