@@ -1,28 +1,35 @@
-<div class="container">
+<div class="container footer-bottom">
+  <div class="card-product">
+    <img src="https://st.depositphotos.com/1036708/2191/i/450/depositphotos_21918797-stock-photo-knife-and-fork-with-plate.jpg" />
+    <div class="card-product-infos">
   <ul>
-    <li><%= @offer.title%></li>
-    <li> <%= @offer.description %></li>
-    <li><%= @offer.price %></li>
+    <li class="offer-title"><%= @offer.title%></li>
+    <li class="offer-desc"><%= @offer.description %></li>
+    <li class="offer-price"><%= @offer.price %>€</li>
   </ul>
+    </div>
+  </div>
   <a href="/offers" class="btn btn-flat">Back</a>
   <%= link_to 'Create a Booking', new_offer_booking_path(@offer), class: "btn btn-flat" %>
 </div>
 
+<%= cl_image_tag @offer.photo.key, height: 300, width: 400, crop: :fill %>
 
+<div class="container">
+  <span id="rateMe4"  class="feedback"></span>
+</div>
 
-<div class="container" text-align: center>
+<!-- rating.js file -->
+<script src="js/addons/rating.js"></script>
+
+<!-- <div class="container" text-align: center>
 <h1><strong>Coming soon</strong></h1>
 </div>
 
 <div class="container">
-  <div class="card-product">
-    <img src="https://st.depositphotos.com/1036708/2191/i/450/depositphotos_21918797-stock-photo-knife-and-fork-with-plate.jpg" />
-    <div class="card-product-infos">
       <ul>
         <li><%= @offer.title%></li>
         <li> <%= @offer.description %></li>
         <li><%= @offer.price %>€</li>
       </ul>
-    </div>
-  </div>
-</div>
+</div> -->
