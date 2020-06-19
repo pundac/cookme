@@ -5,6 +5,7 @@
     <%= f.input :price %>
     <%= f.input :address %>
     <%= f.association :category %>
+    <%= f.input :photo, as: :file %>
     <%= f.button :submit, class: "btn btn-flat" %>
   <% end %>
   <a href="/offers" class="btn btn-ghost">Back</a>
