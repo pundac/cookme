@@ -1,13 +1,25 @@
 class BookingsController < ApplicationController
    def index
     @bookings = current_user.bookings
-    @offers = current_user.offers    
+    @offer_bookings = []
+     current_user.offers.each do |offer|
+        @offer_bookings << offer.bookings
+    end 
+    @offer_bookings.flatten!
    end
-    
+    def update 
+       
+        @booking = Booking.find(params[:id])
+        if params[:accepted] =="true"
+         @booking.accepted = true 
+        end 
+        @booking.save 
+        
+    end
 
     def show
     @booking = Booking.find(params[:id])
-    # @review = Review.new
+    @review = Review.new
     end
 
   def new
