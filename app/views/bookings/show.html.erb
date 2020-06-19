@@ -12,9 +12,8 @@
           <%=simple_form_for [@booking, @review] do |f| %>
             <div class="form-group">
             <%= f.input :comment %>
-            <%=f.collection_radio_buttons :rating, [[1, '1'] ,[2, '2'],[3, '3'],[4, '4'],[5, '5']], :first, :last %>  
-   
-            <%=f.button :submit, "submit", class: "btn btn-flat mr-3" %>
+            <%= f.input :rating, collection: (0..5) %>
+            <%= f.submit %>
             <% end %>
         </div>
       <%else %>
