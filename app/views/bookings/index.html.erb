@@ -2,34 +2,28 @@
   <div class ="flex-fill p-3 m-3 ">
     <h1 class = "text-justify text-center">My reservations </h1>
     <% @bookings.each do |booking| %>
-      <div class = "d-flex flex-column border-white rounded bg-white p-3 m-3">
-      <p class="text-justify text-center"><%= link_to booking.offer.title, booking_path(booking) %></p>
-      <p class="text-justify text-center"><%= booking.date %></p>
-      
-      
+      <div class = "d-flex flex-column border-white rounded bg-dark text-white p-3 m-3">
+       <p class="text-justify text-center"><%= link_to booking.offer.title, booking_path(booking) %></p>
+       <p class="text-justify text-center"><%= booking.date %></p>    
       </div>
     <% end %>
   </div>
   <div class ="flex-fill text-center p-3 m-3 ">
     <h1 class = "text-justify text-center">My offers</h1>
     <% @offer_bookings.each do |offer_booking| %>
-      <div class = "d-flex flex-column border-white rounded bg-white p-3 m-3">
+      <div class = "d-flex flex-column border-white rounded bg-dark text-white p-3 m-3">
         <p class="text-justify text-center"><%= offer_booking.user.email%></p>
-        
         <p class="text-justify text-center"><%= offer_booking.offer.title%></p>
-     <% @bookings.each do |booking| %>
-         <p class="text-justify text-center"><%= booking.date%></p>
-     <div class="form-group justify-content-center">
-           <%=simple_form_for [booking] do |f| %>
-           <%=link_to "accepte the demande", booking_path(booking, accepted: "true"), method: :patch,  class: "btn btn-flat ml-3" %>
-           <%=link_to "refuse the demande", booking_path(booking, accepted: "false "), method: :patch,  class: "btn btn-flat ml-3" %> 
-        </div> 
-      </div>
-        <% end %> 
+
         
-        <% end %> 
-      </div>
- 
+         <p class="text-justify text-center"><%= offer_booking.date%></p>
+           <div class="form-group justify-content-center">
+          
+             <%=link_to "accepte the demande", booking_path(offer_booking, accepted: "true"), method: :patch,  class: "btn btn-flat ml-3" %>
+             <%=link_to "refuse the demande", booking_path(offer_booking, accepted: "false "), method: :patch,  class: "btn btn-flat ml-3" %> 
+           </div>   
+       
+  </div>
     <% end %>
-   </div>
+  </div>
 </div>

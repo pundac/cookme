@@ -6,6 +6,7 @@ class BookingsController < ApplicationController
         @offer_bookings << offer.bookings
     end 
     @offer_bookings.flatten!
+
    end
     def update 
        
